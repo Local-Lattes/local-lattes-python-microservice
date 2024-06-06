@@ -22,7 +22,7 @@ class CsvGenerator():
         return business_df, review_df
 
     def __clean_business_data(self, df: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
-        df = df[df['isopen'] == 1]
+        df = df[df['is_open'] == 1]
         df = df[columns]
         df = df[df["categories"].str.contains("Cafe", na=False) | df['categories'].str.contains("Coffee", na=False)]
         self.business_ids = set(df['business_id'])
